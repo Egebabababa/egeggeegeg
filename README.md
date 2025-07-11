@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Barışalım mı?</title>
+<style>
+  body {
+    margin: 0;
+    background: linear-gradient(to right, #ffe6e6, #fff0f5);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+  }
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+  }
+  h1 {
+    font-size: 3em;
+    color: #ff4d4d;
+    margin: 10px 0 20px 0;
+  }
+  .hug-bunnies {
+    width: 160px;
+    display: block;
+    margin: 0 auto 10px auto;
+  }
+  button {
+    font-size: 1.5em;
+    padding: 12px 30px;
+    margin: 15px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  #yesBtn {
+    background-color: #28a745;
+    color: white;
+  }
+  #noBtn {
+    background-color: #dc3545;
+    color: white;
+  }
+  #loveMessage {
+    display: none;
+    margin-top: 40px;
+    font-size: 2.7em;
+    color: #e60073;
+  }
+
+  /* Kalpler ve güller container */
+  .effects-container {
+    pointer-events: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    overflow: visible;
+    z-index: 5;
+  }
+
+  /* Kalp animasyonu */
+  .heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: url('data:image/svg+xml;utf8,<svg fill="%23ff4d4d" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center / contain;
+    animation: floatUp 4s linear forwards;
+    opacity: 0.8;
+  }
+  @keyframes floatUp {
+    0% {
+      transform: translateY(100vh) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-50px) scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  /* Gül animasyonu */
+  .flower {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: url('data:image/svg+xml;utf8,<svg fill="%23e60073" height="35" viewBox="0 0 24 24" width="35" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C9.243 2 7 4.243 7 7c0 1.106.897 2 2 2s2-.894 2-2c0-1.106-.897-2-2-2zM5.998 12c-.125 0-.248.03-.352.086l-2 1.126a.5.5 0 0 0-.146.707l3 4a.5.5 0 0 0 .707.146l2-1.126c.125-.07.215-.186.254-.317l1.561-6.329a.5.5 0 0 0-.49-.619h-5zm10.378-5.273a.5.5 0 0 0-.676-.25l-3 1.645a.5.5 0 0 0-.221.726l3 4a.5.5 0 0 0 .676.25l3-1.646a.5.5 0 0 0 .221-.726l-3-4z"/></svg>') no-repeat center / contain;
+    animation: fallDown 5s linear forwards;
+    opacity: 0.85;
+  }
+  @keyframes fallDown {
+    0% {
+      transform: translateY(-10vh) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(110vh) scale(1.3);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Sarılmış tavşanlar (base64 png) -->
+  <img class="hug-bunnies" alt="Sarılmış Tavşanlar" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAIAAACFqqnVAAAACXBIWXMAAAsTAAALEwEAmpwYAAACaElEQVR4nO3cQY7kMBCF4e/jzz3u3foNtuJIekpu9RGEdyGX2HsI3C1aWLUuPsfQ6coAexjfy/jk1rMFE03zz6YHch4iIv4A6AC+PRndKnIEcgGUeV9AwfICSMRjQCfAE2H6TjMEQDPFz4MmJqLtAAkIKhDZH8fHItKlHq7FAhJwhKj+X5oFYslADwKQT9iAxBJDx9zEB6QZHIis5BhJAx5vl9MymWEDCeQ8d
